@@ -1,195 +1,165 @@
-# upmee-cli
+# UPMee CLI (`upmee-cli`)
 
-Call upmee APIs using natural language — no code, no API knowledge required.
+<p align="center">
+  <img src="https://img.shields.io/badge/AI--Native-Agent%20Skill-botgreen?style=flat-for-the-badge" alt="AI-Native">
+  <img src="https://img.shields.io/badge/Compatible-Claude%20Code%20%7C%20Cursor%20%7C%20Windsurf-blue?style=flat-for-the-badge" alt="Compatibility">
+  <img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-for-the-badge" alt="License">
+</p>
 
-This repo ships two Claude Code skill commands:
+> **Operate global social media channels using pure natural language.**
+> `upmee-cli` bridges the gap between AI Agents and the UPMee API. No coding skills or API documentation drilling required. Simply describe what you want in plain text, and your AI assistant will handle complex matrix operations across TikTok, YouTube, and Instagram.
 
-- `/upmee_setup`: one-time initialization — saves your API Key and verifies connectivity
-- `/upmee`: describe what you need in natural language, and the AI handles the API calls
-
----
-
-## What You Need
-
-| Item | How to Get |
-|---|---|
-| [Claude Code](https://claude.ai/code) | Install and sign in |
-| upmee API Key | Log in to upmee → Developer Settings → API Key Management → Create |
-| team_id | Log in to upmee → Team Settings |
+This repository ships with two custom **Claude Code** skill commands:
+- `/upmee_setup`: One-time initialization. Securely saves your API Key locally and verifies server connectivity.
+- `/upmee`: Core execution engine. Describe your task in natural language, and the AI autonomously orchestrates the required UPMee API calls.
 
 ---
 
-## Quick Start
+## 🔑 Prerequisites
 
-### Step 1: Clone the repo
+Before getting started, ensure you have the following components ready:
 
+| Requirement | Description & How to Obtain |
+| :--- | :--- |
+| **[Claude Code](https://claude.ai/code)** | Anthropic's official CLI agent. Install via `npm i -g @anthropic-ai/claude-code` and sign in. |
+| **UPMee API Key** | Log in to UPMee Platform → **Developer Settings** → **API Key Management** → **Create Key**. |
+| **Team ID** | Located in your UPMee Platform → **Team Settings** dashboard. |
+
+---
+
+## 🚀 Quick Start
+
+### Step 1: Clone the Repository
 ```bash
-git clone https://github.com/upmee-ai/upmee-cli.git
+git clone [https://github.com/upmee-ai/upmee-cli.git](https://github.com/upmee-ai/upmee-cli.git)
 cd upmee-cli
 ```
+> ⚠️ **Crucial Note:** Every time you use this tool, you must launch Claude Code from the root of this repository directory so that the custom skill definitions can be auto-discovered.
 
-> Every time you use this tool, launch Claude Code from this directory so the skill commands are available.
-
-### Step 2: Start Claude Code
-
+### Step 2: Launch Claude Code
 ```bash
 claude
 ```
 
-### Step 3: Initialize (one time only)
-
-In the Claude Code chat, run:
-
+### Step 3: Initialize (One-Time Only)
+Inside the interactive Claude Code chat interface, run the setup command to initialize your secure local config:
+```text
+/upmee_setup YOUR_UPMEE_API_KEY
 ```
-/upmee_setup your-API-Key
+If you already know your Team ID, you can pass it simultaneously:
+```text
+/upmee_setup YOUR_UPMEE_API_KEY 12345
 ```
+Once you see the `"Setup complete!"` confirmation, initialization is finished. Your API key is permanently stored on your local machine.
 
-If you already know your team ID, pass it too:
-
-```
-/upmee_setup your-API-Key 12345
-```
-
-When you see "Setup complete!", initialization is done. Your API Key is saved permanently on your machine — no need to re-run this.
-
-### Step 4: Start using
-
-```
+### Step 4: Run Your First AI-Driven Command
+```text
 /upmee List all bound accounts for team_id 12345
 ```
 
 ---
 
-## Usage Examples
+## 💡 Matrix Automation Examples
 
-### List accounts
-
-```
+### 📈 Account & Audit Management
+```text
+# Audit connected social media assets across platforms
 /upmee List all bound accounts for team_id 12345
-```
 
-### Publish a video
-
-```
-/upmee Publish /Users/me/Desktop/video.mp4 to TikTok with title "Summer Scenery", team_id 12345
-```
-
-### Check publishing task status
-
-```
+# Track programmatic publishing status over the past week
 /upmee Show publishing tasks from the last 7 days, team_id 12345
 ```
 
-### View and reply to comments
-
+### 🎥 Content & Video Distribution
+```text
+# Distribute video assets to TikTok with customized metadata
+/upmee Publish /Users/me/Desktop/video.mp4 to TikTok with title "Summer Scenery", team_id 12345
 ```
+
+### 💬 Engagement & Lead Conversion
+```text
+# Fetch comment stream from a specific piece of content
 /upmee List comments on item_id 7xxx, team_id 12345
+
+# Submit an automated, contextual reply to a fan comment
 /upmee Reply to comment_id xxx on item_id 7xxx with "Thanks for the support!", team_id 12345
-```
 
-### Check direct messages
-
-```
+# Monitor active customer conversations and direct messages
 /upmee List the latest conversations for media_id 888, team_id 12345
 ```
 
 ---
 
-## Daily Use
+## 🔄 Daily Workflow
 
-Each time you open a terminal, navigate to this repo before starting Claude Code:
-
+To keep the custom AI skills active, always navigate to this project folder in your terminal before launching Claude Code:
 ```bash
-cd upmee-cli
+cd /path/to/upmee-cli
 claude
 ```
-
-No re-initialization needed — just describe your task.
+No re-initialization needed—simply instruct the AI in plain English or Chinese to manage your social operations.
 
 ---
 
-## FAQ
+## 🤖 Using in Cursor / Windsurf
 
-**Q: `/upmee` command not recognized?**
+Since Cursor and Windsurf do not natively support `/` slash commands, you can achieve identical functionality by feeding the skill boundaries into their **AI Rules / Context Instructions** systems.
 
-The skill commands only work when Claude Code is launched from this repo directory. Verify:
+### Configuration
+* **Cursor**: Go to `Cursor Settings` → `Rules` → `User Rules`
+* **Windsurf**: Create a `.windsurfrules` file in the root of the project, or paste into Cascade Rules settings.
 
-```bash
-# macOS / Linux
-ls .claude/skills/upmee/SKILL.md
-
-# Windows PowerShell
-Test-Path ".\.claude\skills\upmee\SKILL.md"
+Add the following rule set:
+```text
+You are an expert UPMee API assistant.
+1. When the user says "initialize upmee", read .claude/skills/upmee_setup/SKILL.md in the current directory and follow the steps.
+2. When the user describes a UPMee task, read .claude/skills/upmee/SKILL.md in the current directory and follow the steps.
+3. Execute all HTTP requests via curl in the IDE's built-in terminal.
 ```
 
-If the file exists but the command is still not recognized, exit Claude Code and relaunch it from this directory.
-
----
-
-**Q: `/upmee_setup` says my API Key is invalid?**
-
-1. Make sure the key was copied in full with no extra spaces
-2. Log in to upmee and confirm the key is active
-3. Re-run `/upmee_setup your-new-API-Key`
-
----
-
-**Q: Do I need to re-run `/upmee_setup` every time?**
-
-No. Setup runs once; the config is saved permanently at `~/.upmee/config.json`.
-
----
-
-**Q: The AI asks me to run a command manually when publishing a video — is that normal?**
-
-Yes. Video uploads involve binary file transfer. The AI generates the full command; you copy it to your terminal, run it, then paste the output back. That's the only manual step in the entire flow.
-
----
-
-**Q: The API docs were updated — what do I do?**
-
-Run `git pull` in the repo directory to get the latest docs. No need to re-run `/upmee_setup`.
-
----
-
-## Using in Cursor / Windsurf
-
-Cursor and Windsurf do not support `/upmee` slash commands. Use the Rules mechanism instead.
-
-**Cursor**: `Cursor Settings → Rules → User Rules`
-
-**Windsurf**: create `.windsurfrules` in the project root, or use Cascade Rules settings
-
-Add the following to your Rules:
-
-```
-You are a upmee API assistant.
-When the user says "initialize upmee", read .claude/skills/upmee_setup/SKILL.md in the current directory and follow the steps.
-When the user describes a upmee task, read .claude/skills/upmee/SKILL.md in the current directory and follow the steps.
-Execute all HTTP requests via curl in the IDE's built-in terminal.
-```
-
-Then type natural language in the AI chat — no `/upmee` prefix needed:
-
-```
+Once configured, you **no longer need the `/upmee` prefix**. Simply use natural language directly in your AI chat panel:
+```text
 Initialize upmee with API Key sk-xxxxxxxx, team_id 12345
 List all bound accounts
 ```
 
 ---
 
-## Directory Structure
+## ❓ FAQ
 
+**Q: The `/upmee` command is not being recognized by Claude Code?**  
+A: The skill payloads only execute when Claude Code is initialized directly inside this repository. You can verify that the skill definitions exist by running:
+- *macOS / Linux:* `ls .claude/skills/upmee/SKILL.md`
+- *Windows PowerShell:* `Test-Path ".\.claude\skills\upmee\SKILL.md"`
+  If the files are verified but the command still fails, `exit` Claude Code and re-launch it from this directory.
+
+**Q: The AI asks me to copy and run a command manually when publishing a video—is that normal?**  
+A: **Yes, completely expected.** Video and rich media publishing involve heavy binary file transfers, which cannot be directly streamed through the text-based LLM chat context. The AI agent will dynamically compile the perfect `curl` or upload command customized to your local file path. You simply copy-paste it into your terminal, hit execute, and paste the server response back to the AI to continue tracking.
+
+**Q: Where is my API Key saved? Is it secure?**  
+A: Your credentials are safe. The setup script stores configurations purely on your local file system at `~/.upmee/config.json`. UPMee never intercepts, caches, or collects your secret tokens on external servers.
+
+**Q: What should I do when UPMee rolls out API documentation updates?**  
+A: Simply pull the latest changes from this repository:
+```bash
+git pull
 ```
+This updates the underlying local skill prompt specifications. No re-initialization or key regeneration is required.
+
+---
+
+## 📂 Directory Structure
+
+```text
 upmee-cli/
 └── .claude/
     └── skills/
         ├── upmee_setup/
-        │   └── SKILL.md   # Setup skill
+        │   └── SKILL.md   # Initialization & secure authentication mechanics
         └── upmee/
-            └── SKILL.md   # Task execution skill
+            └── SKILL.md   # Core Natural-Language-to-API engine
 ```
 
 ---
 
-For support, contact upmee official support.
+✉️ **Need Assistance?** For additional support, feature requests, or enterprise scaling inquiries, contact the UPMee official developer support team or open an Issue.
