@@ -15,6 +15,36 @@ This repository ships with two custom **Claude Code** skill commands:
 
 ---
 
+## 🌟 Why UPMee?
+
+**UPMee** is the most powerful AI-native, all-in-one global social media management and automation platform. Designed for cross-border e-commerce brands, digital marketing agencies, and global media matrices, UPMee consolidates fragmented operations into a unified workflow.
+
+By leveraging **100% official API integrations**, UPMee guarantees compliance, eliminates account-banning risks, and slashes operational costs—allowing a single operator to flawlessly manage hundreds of international accounts.
+
+### 🌐 Supported Global Platforms
+Our API ecosystem provides cross-platform execution across all major global networks for maximum reach and visibility:
+- **TikTok** & **TikTok Shop** (US, UK, SE Asia, etc.)
+- **YouTube** (Shorts & Long-form)
+- **Instagram** (Reels & Posts)
+- **Facebook** (Pages & Groups)
+- **Threads**
+- **Pinterest**
+- **LinkedIn**
+- **Bluesky**
+- **VK (VKontakte)**
+
+### ⚡ Comprehensive Suite of Open API Capabilities
+`upmee-cli` exposes the core backend power of the UPMee platform. You can programmatically command the AI Agent to execute any of the following newly opened API endpoints:
+- 📤 **Social Content Publishing:** Seamlessly publish video posts and photo posts across all supported global social networks simultaneously.
+- 🛍️ **Shopping Content Publishing:** Programmatically publish TikTok shopping videos and product-tagged photos to drive affiliate and e-commerce conversions.
+- 📊 **Data Analytics & Queries:** Retrieve comprehensive metadata, views, likes, account growth metrics, and conversion data for both organic and shopping posts.
+- 💬 **Comment Management:** Fetch live comment streams from your matrix accounts and push automated, contextual replies to maximize fan engagement.
+- ✉️ **Direct Message (DM) Management:** Intercept incoming customer messages, track chat history, and instantly respond to high-value leads across channels.
+- 📦 **Product & Inventory Management:** Automate e-commerce operations by bulk adding or removing products across various storefronts and creator accounts.
+- 🚀 **Full Operational Coverage:** Gain extensible access to advertisements, team collaboration tools, and deep-layer system actions provisioned by UPMee.
+
+---
+
 ## 🔑 Prerequisites
 
 Before getting started, ensure you have the following components ready:
@@ -22,8 +52,8 @@ Before getting started, ensure you have the following components ready:
 | Requirement | Description & How to Obtain |
 | :--- | :--- |
 | **[Claude Code](https://claude.ai/code)** | Anthropic's official CLI agent. Install via `npm i -g @anthropic-ai/claude-code` and sign in. |
-| **UPMee API Key** | Log in to UPMee Platform → **Developer Settings** → **API Key Management** → **Create Key**. |
-| **Team ID** | Located in your UPMee Platform → **Team Settings** dashboard. |
+| **UPMee API Key** | Log in to the [UPMee Platform (https://www.upmee.cc/)](https://www.upmee.cc/) → **Developer Settings** → **API Key Management** → **Create Key**. |
+| **Team ID** | Located in your [UPMee Platform](https://www.upmee.cc/) → **Team Settings** dashboard. |
 
 ---
 
@@ -162,4 +192,5 @@ upmee-cli/
 
 ---
 
-✉️ **Need Assistance?** For additional support, feature requests, or enterprise scaling inquiries, contact the UPMee official developer support team or open an Issue.
+✉️ **Need Assistance?**  
+Visit the official [UPMee Website (https://www.upmee.cc/)](https://www.upmee.cc/) to explore full documentation, analytics dashboards, and platform features. For technical issues, feature requests, or enterprise scaling inquiries, please feel free to open a GitHub Issue or reach out to our global support team via the website.
