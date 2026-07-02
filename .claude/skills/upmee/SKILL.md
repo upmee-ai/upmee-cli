@@ -100,7 +100,7 @@ Get-Content "docs\open_api_guide\<domain>.md"
 Domain to filename: `media` → `media.md`, `task` → `task.md`, etc.
 
 If the file is not found, tell the user:
-> "API docs not found. Make sure you launched Claude Code from the upmee-open-agent repo directory, then run `git pull` to ensure docs are up to date."
+> "API docs not found. Make sure you launched Claude Code from the upmee-cli repo directory, then run `git pull` to ensure docs are up to date."
 
 ---
 

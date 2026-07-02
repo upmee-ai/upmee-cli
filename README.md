@@ -1,4 +1,4 @@
-# upmee-open-agent
+# upmee-cli
 
 Call upmee APIs using natural language — no code, no API knowledge required.
 
@@ -24,8 +24,8 @@ This repo ships two Claude Code skill commands:
 ### Step 1: Clone the repo
 
 ```bash
-git clone https://github.com/dreamerainc/upmee-open-agent.git
-cd upmee-open-agent
+git clone https://github.com/upmee-ai/upmee-cli.git
+cd upmee-cli
 ```
 
 > Every time you use this tool, launch Claude Code from this directory so the skill commands are available.
@@ -100,7 +100,7 @@ When you see "Setup complete!", initialization is done. Your API Key is saved pe
 Each time you open a terminal, navigate to this repo before starting Claude Code:
 
 ```bash
-cd upmee-open-agent
+cd upmee-cli
 claude
 ```
 
@@ -181,7 +181,7 @@ List all bound accounts
 ## Directory Structure
 
 ```
-upmee-open-agent/
+upmee-cli/
 └── .claude/
     └── skills/
         ├── upmee_setup/
