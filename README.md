@@ -127,7 +127,7 @@ To keep the custom AI skills active, always navigate to this project folder in y
 cd /path/to/upmee-cli
 claude
 ```
-No re-initialization needed—simply instruct the AI in plain English or Chinese to manage your social operations.
+No re-initialization needed—simply instruct the AI in plain English or any other language to manage your social operations.
 
 ---
 
