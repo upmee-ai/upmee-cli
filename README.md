@@ -1,196 +1,74 @@
-# UPMee CLI (`upmee-cli`)
+# UPMee CLI
 
-<p align="center">
-  <img src="https://img.shields.io/badge/AI--Native-Agent%20Skill-botgreen?style=flat-for-the-badge" alt="AI-Native">
-  <img src="https://img.shields.io/badge/Compatible-Claude%20Code%20%7C%20Cursor%20%7C%20Windsurf-blue?style=flat-for-the-badge" alt="Compatibility">
-  <img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-for-the-badge" alt="License">
-</p>
+**Run social media, creator commerce, and content workflows from your AI assistant.**
 
-> **Operate global social media channels using pure natural language.**
-> `upmee-cli` bridges the gap between AI Agents and the UPMee API. No coding skills or API documentation drilling required. Simply describe what you want in plain text, and your AI assistant will handle complex matrix operations across TikTok, YouTube, and Instagram.
+Ask Claude Code, Codex, or another AI coding assistant to check a TikTok publishing schedule, pull affiliate orders, or review recent Instagram comments. UPMee CLI provides Agent Skills that help your assistant find the right UPMee API operation, build the request, and report what happened.
 
-This repository ships with two custom **Claude Code** skill commands:
-- `/upmee_setup`: One-time initialization. Securely saves your API Key locally and verifies server connectivity.
-- `/upmee`: Core execution engine. Describe your task in natural language, and the AI autonomously orchestrates the required UPMee API calls.
+[Explore UPMee](https://www.upmee.cc/) · [Get started](#quick-start) · [Browse the API index](docs/api-index.md)
 
----
+## Why UPMee?
 
-## 🌟 Why UPMee?
+UPMee gives brands, agencies, and creator teams one platform for managing connected accounts and running recurring workflows across markets. Use the dashboard for day-to-day operations, or bring the same API workflows into the AI tool you already use.
 
-**UPMee** is the most powerful AI-native, all-in-one global social media management and automation platform. Designed for cross-border e-commerce brands, digital marketing agencies, and global media matrices, UPMee consolidates fragmented operations into a unified workflow.
+Work with platforms such as TikTok, YouTube, Facebook Pages, Instagram, and TikTok Shop. Availability varies by platform, account type, and API operation.
 
-By leveraging **100% official API integrations**, UPMee guarantees compliance, eliminates account-banning risks, and slashes operational costs—allowing a single operator to flawlessly manage hundreds of international accounts.
+## What you can do
 
-### 🌐 Supported Global Platforms
-Our API ecosystem provides cross-platform execution across all major global networks for maximum reach and visibility:
-- **TikTok** & **TikTok Shop** (US, UK, SE Asia, etc.)
-- **YouTube** (Shorts & Long-form)
-- **Instagram** (Reels & Posts)
-- **Facebook** (Pages & Groups)
-- **Threads**
-- **Pinterest**
-- **LinkedIn**
-- **Bluesky**
-- **VK (VKontakte)**
+| Workflow | What the API supports |
+| --- | --- |
+| **Social publishing** | Upload assets, create or update video and photo publishing tasks, and check publishing status. |
+| **Audience engagement** | Read and reply to comments, review direct message conversations, and manage customer records. |
+| **Creator commerce** | Manage showcase products, create shoppable content, and look up affiliate orders and commissions. |
+| **Performance reporting** | Query social and shop analytics for reporting and campaign review. |
+| **AI content generation** | Create video, image, and voice generation tasks and check results through the relevant endpoints. |
+| **Automation and Spark Ads** | Manage comment and DM automation rules, knowledge bases, and TikTok Spark Ads authorization tasks. |
 
-### ⚡ Comprehensive Suite of Open API Capabilities
-`upmee-cli` exposes the core backend power of the UPMee platform. You can programmatically command the AI Agent to execute any of the following newly opened API endpoints:
-- 📤 **Social Content Publishing:** Seamlessly publish video posts and photo posts across all supported global social networks simultaneously.
-- 🛍️ **Shopping Content Publishing:** Programmatically publish TikTok shopping videos and product-tagged photos to drive affiliate and e-commerce conversions.
-- 📊 **Data Analytics & Queries:** Retrieve comprehensive metadata, views, likes, account growth metrics, and conversion data for both organic and shopping posts.
-- 💬 **Comment Management:** Fetch live comment streams from your matrix accounts and push automated, contextual replies to maximize fan engagement.
-- ✉️ **Direct Message (DM) Management:** Intercept incoming customer messages, track chat history, and instantly respond to high-value leads across channels.
-- 📦 **Product & Inventory Management:** Automate e-commerce operations by bulk adding or removing products across various storefronts and creator accounts.
-- 🚀 **Full Operational Coverage:** Gain extensible access to advertisements, team collaboration tools, and deep-layer system actions provisioned by UPMee.
+## Quick start
 
----
+1. Sign in to [UPMee](https://www.upmee.cc/), create an API key, and identify the team you want to work with. Make the key available to your local execution environment as `UPMEE_API_KEY` and set `UPMEE_TEAM_ID` to your team ID. Keep the key out of chat and source control.
+2. Clone the repository, then open it in your AI assistant.
 
-## 🔑 Prerequisites
+   ```bash
+   git clone https://github.com/upmee-ai/upmee-cli.git
+   cd upmee-cli
+   ```
 
-Before getting started, ensure you have the following components ready:
+3. Follow the setup guide for your assistant and try the read-only account lookup.
 
-| Requirement | Description & How to Obtain |
-| :--- | :--- |
-| **[Claude Code](https://claude.ai/code)** | Anthropic's official CLI agent. Install via `npm i -g @anthropic-ai/claude-code` and sign in. |
-| **UPMee API Key** | Log in to the [UPMee Platform (https://www.upmee.cc/)](https://www.upmee.cc/) → **Developer Settings** → **API Key Management** → **Create Key**. |
-| **Team ID** | Located in your [UPMee Platform](https://www.upmee.cc/) → **Team Settings** dashboard. |
+| Assistant | Verify access | List connected accounts |
+| --- | --- | --- |
+| [Claude Code](docs/setup/claude-code.md) | `/upmee_setup` | `/upmee List the connected accounts for my team` |
+| [Codex](docs/setup/codex.md) | `$upmee-setup` | `$upmee List the connected accounts for my team` |
+| [Other AI tools](docs/setup/other-ai-tools.md) | Ask the assistant to follow the shared setup skill. | Ask it to use the UPMee skill to list your team's connected accounts. |
 
----
+## Try a workflow
 
-## 🚀 Quick Start
+- **Social team** — “Show this week's scheduled publishing tasks. Group them by account and flag any that failed.”
+- **Creator commerce team** — “Summarize affiliate orders from the past seven days and show estimated and actual commissions separately.”
+- **Community manager** — “List recent comments on this Instagram post and draft replies for my review.”
+- **Content team** — “Check my recent AI image generation tasks and show which are complete.”
 
-### Step 1: Clone the Repository
-```bash
-git clone [https://github.com/upmee-ai/upmee-cli.git](https://github.com/upmee-ai/upmee-cli.git)
-cd upmee-cli
-```
-> ⚠️ **Crucial Note:** Every time you use this tool, you must launch Claude Code from the root of this repository directory so that the custom skill definitions can be auto-discovered.
+See [workflow examples](docs/workflows.md) for the inputs each task needs and what to check in the response.
 
-### Step 2: Launch Claude Code
-```bash
-claude
-```
+## API best practices
 
-### Step 3: Initialize (One-Time Only)
-Inside the interactive Claude Code chat interface, run the setup command to initialize your secure local config:
-```text
-/upmee_setup YOUR_UPMEE_API_KEY
-```
-If you already know your Team ID, you can pass it simultaneously:
-```text
-/upmee_setup YOUR_UPMEE_API_KEY 12345
-```
-Once you see the `"Setup complete!"` confirmation, initialization is finished. Your API key is permanently stored on your local machine.
+Fetch every page when you need the full account list and select accounts by the types accepted by the target endpoint. Keep API traffic at or below 5 requests per second by default. After submitting publishing tasks, save their IDs and wait at least 5 minutes before checking status in batches. Send up to 20 IDs per batch and leave at least 10 seconds between status requests. Recheck tasks still under review once, at least 5 minutes later, for a maximum of two checks per ID.
 
-### Step 4: Run Your First AI-Driven Command
-```text
-/upmee List all bound accounts for team_id 12345
-```
+[See how to apply these practices](docs/workflows.md#api-best-practices).
 
----
+[Data retrieval and sync](docs/workflows.md#data-retrieval-and-sync) covers batching, publication-time filters for the past four days, hourly analytics updates, and incremental comment and message syncs.
 
-## 💡 Matrix Automation Examples
+## API reference
 
-### 📈 Account & Audit Management
-```text
-# Audit connected social media assets across platforms
-/upmee List all bound accounts for team_id 12345
+Use the [English endpoint index](docs/api-index.md) to find an operation and its request path. Open the linked local Markdown for request and response fields, examples, and limits. If your assistant cannot access the reference, use **Copy as Markdown** and provide the document in your session.
 
-# Track programmatic publishing status over the past week
-/upmee Show publishing tasks from the last 7 days, team_id 12345
-```
+## Support
 
-### 🎥 Content & Video Distribution
-```text
-# Distribute video assets to TikTok with customized metadata
-/upmee Publish /Users/me/Desktop/video.mp4 to TikTok with title "Summer Scenery", team_id 12345
-```
+Report documentation issues through [GitHub Issues](https://github.com/upmee-ai/upmee-cli/issues). Include the endpoint, the behavior you observed, and the request ID if available. Remove API keys and account data before sharing logs.
 
-### 💬 Engagement & Lead Conversion
-```text
-# Fetch comment stream from a specific piece of content
-/upmee List comments on item_id 7xxx, team_id 12345
+See the [maintenance guide](docs/maintenance.md) for updating the skills and endpoint index.
 
-# Submit an automated, contextual reply to a fan comment
-/upmee Reply to comment_id xxx on item_id 7xxx with "Thanks for the support!", team_id 12345
 
-# Monitor active customer conversations and direct messages
-/upmee List the latest conversations for media_id 888, team_id 12345
-```
+## Online documentation fallback
 
----
-
-## 🔄 Daily Workflow
-
-To keep the custom AI skills active, always navigate to this project folder in your terminal before launching Claude Code:
-```bash
-cd /path/to/upmee-cli
-claude
-```
-No re-initialization needed—simply instruct the AI in plain English or any other language to manage your social operations.
-
----
-
-## 🤖 Using in Cursor / Windsurf
-
-Since Cursor and Windsurf do not natively support `/` slash commands, you can achieve identical functionality by feeding the skill boundaries into their **AI Rules / Context Instructions** systems.
-
-### Configuration
-* **Cursor**: Go to `Cursor Settings` → `Rules` → `User Rules`
-* **Windsurf**: Create a `.windsurfrules` file in the root of the project, or paste into Cascade Rules settings.
-
-Add the following rule set:
-```text
-You are an expert UPMee API assistant.
-1. When the user says "initialize upmee", read .claude/skills/upmee_setup/SKILL.md in the current directory and follow the steps.
-2. When the user describes a UPMee task, read .claude/skills/upmee/SKILL.md in the current directory and follow the steps.
-3. Execute all HTTP requests via curl in the IDE's built-in terminal.
-```
-
-Once configured, you **no longer need the `/upmee` prefix**. Simply use natural language directly in your AI chat panel:
-```text
-Initialize upmee with API Key sk-xxxxxxxx, team_id 12345
-List all bound accounts
-```
-
----
-
-## ❓ FAQ
-
-**Q: The `/upmee` command is not being recognized by Claude Code?**  
-A: The skill payloads only execute when Claude Code is initialized directly inside this repository. You can verify that the skill definitions exist by running:
-- *macOS / Linux:* `ls .claude/skills/upmee/SKILL.md`
-- *Windows PowerShell:* `Test-Path ".\.claude\skills\upmee\SKILL.md"`
-  If the files are verified but the command still fails, `exit` Claude Code and re-launch it from this directory.
-
-**Q: The AI asks me to copy and run a command manually when publishing a video—is that normal?**  
-A: **Yes, completely expected.** Video and rich media publishing involve heavy binary file transfers, which cannot be directly streamed through the text-based LLM chat context. The AI agent will dynamically compile the perfect `curl` or upload command customized to your local file path. You simply copy-paste it into your terminal, hit execute, and paste the server response back to the AI to continue tracking.
-
-**Q: Where is my API Key saved? Is it secure?**  
-A: Your credentials are safe. The setup script stores configurations purely on your local file system at `~/.upmee/config.json`. UPMee never intercepts, caches, or collects your secret tokens on external servers.
-
-**Q: What should I do when UPMee rolls out API documentation updates?**  
-A: Simply pull the latest changes from this repository:
-```bash
-git pull
-```
-This updates the underlying local skill prompt specifications. No re-initialization or key regeneration is required.
-
----
-
-## 📂 Directory Structure
-
-```text
-upmee-cli/
-└── .claude/
-    └── skills/
-        ├── upmee_setup/
-        │   └── SKILL.md   # Initialization & secure authentication mechanics
-        └── upmee/
-            └── SKILL.md   # Core Natural-Language-to-API engine
-```
-
----
-
-✉️ **Need Assistance?**  
-Visit the official [UPMee Website (https://www.upmee.cc/)](https://www.upmee.cc/) to explore full documentation, analytics dashboards, and platform features. For technical issues, feature requests, or enterprise scaling inquiries, please feel free to open a GitHub Issue or reach out to our global support team via the website.
+If a call fails, use the [live API documentation](https://www.upmee.cc/developers/document/) directory to locate the endpoint and verify its latest parameters. Follow the [fallback workflow](docs/workflows.md#check-the-latest-online-reference) before retrying.
